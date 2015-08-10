@@ -5,5 +5,25 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "mongoose": "^4.1.1"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Mean Stack Demo",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corysandahl/MeanDemo.git"
+  },
+  "keywords": [
+    "mean",
+    "stack"
+  ],
+  "author": "Cory Sandahl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corysandahl/MeanDemo/issues"
+  },
+  "homepage": "https://github.com/corysandahl/MeanDemo#readme"
 }
