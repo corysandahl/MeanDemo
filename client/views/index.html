@@ -7,7 +7,7 @@
 		<div ng-controller="meetupsController">
 			<h1>There are {{meetups.length}} meetups</h1>
 			<ul>
-				<li ng-repeat="meetup in meetups">
+				<li ng-repeat="meetup in meetups" ng-click="removeItem(meetup);">
 					{{meetup.name}}
 			</ul>
 			<form ng-submit="createMeetup()">

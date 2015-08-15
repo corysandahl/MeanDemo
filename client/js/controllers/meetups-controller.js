@@ -1,5 +1,5 @@
-app.controller('meetupsController', ['$scope', '$resource', function($scope, $resource) {
-	var Meetup = $resource('/api/meetups');
+app.controller('meetupsController', ['$scope', '$resource', '$http', function($scope, $resource, $http) {
+	var Meetup = $resource('/api/meetups/:id');
 	
 	Meetup.query(function(results) {
 		$scope.meetups = results;
@@ -12,5 +12,10 @@ app.controller('meetupsController', ['$scope', '$resource', function($scope, $re
 			$scope.meetups.push(result);
 		});
 	}
-
+	
+	$scope.removeItem = function (meetup) {
+		meetup.$delete(function(result) {
+			console.log(result.message.n);
+		});
+	}
 }])

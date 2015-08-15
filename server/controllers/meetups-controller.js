@@ -8,6 +8,16 @@ module.exports.create = function (req, res) {
 	});
 }
 
+module.exports.delete = function (req, res) {
+	Meetup.remove({"_id": req.params._id}, function(err, service) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json({ message: 'deleted id ' + req.params._id});
+		}
+	});
+}
+
 module.exports.list = function(req, res) {
 	Meetup.find({}, function(err, results) {
 		res.json(results);
