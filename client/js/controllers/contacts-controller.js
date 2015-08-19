@@ -25,7 +25,14 @@ function AppCtrl($scope, $http) {
 	}
 
 	$scope.edit = function(contact) {
-		$scope.contact = contact;
+		var c = {
+			_id: contact._id,
+			name: contact.name,
+			email: contact.email,
+			company: contact.company,
+			title: contact.title
+		}
+		$scope.contact = c;
 	}
 
 	$scope.update = function(contact) {
@@ -36,5 +43,11 @@ function AppCtrl($scope, $http) {
 				console.log(res);
 			});
 	}
-}
 
+	$scope.revers = false;
+	$scope.predicate = "name";
+	$scope.order = function(predicate) {
+		$scope.reverse = !$scope.reverse;
+		$scope.predicate = predicate;
+	}
+}

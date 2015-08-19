@@ -1,23 +1,25 @@
-<html ng-app>
+<!doctype html>
+<html lang="en">
 <head>
 	<title></title>
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+<script type="text/javascript" src="/js/controllers/contacts-controller.js"></script>
 
 </head>
-<body>
+<body ng-app>
 	<div class="container" ng-controller="AppCtrl">
-		<h1>Contacts List</h1>
+		<h1>Cory's LinkedIn Contact List</h1>
+			<input type="search" placeholder="filter contacts..." ng-model="q"></input>
+			<b><span>{{filtered.length}}</span> found</b>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Company</th>
-					<th>Title</th>
+					<th ng-click="order('name')">Name</th>
+					<th ng-click="order('email')">Email</th>
+					<th ng-click="order('company')">Company</th>
+					<th ng-click="order('title')">Title</th>
 					<th>Action</th>
 					<th>&nbsp;</th>
 				</tr>
@@ -31,8 +33,8 @@
 					<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</input>
 					<td><button class="btn btn-info" ng-click="update()">Update</input>
 				</tr>
-				<tr ng-repeat="contact in contactlist">
-					<td>{{contact.name}}</td>
+				<tr ng-repeat="contact in filtered = (contactlist | filter: q) | orderBy:predicate:reverse">
+					<td>{{$index + 1}}. {{contact.name}}</td>
 					<td>{{contact.email}}</td>
 					<td>{{contact.company}}</td>
 					<td>{{contact.title}}</td>
@@ -42,7 +44,5 @@
 			</tbody>
 		</table>
 	</div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-<script type="text/javascript" src="/js/controllers/contacts-controller.js"></script>
 </body>
 </html>
