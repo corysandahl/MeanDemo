@@ -10,10 +10,13 @@
 </head>
 <body ng-app>
 	<div class="container" ng-controller="AppCtrl">
-		<h1>Cory's LinkedIn Contact List</h1>
-			<input type="search" placeholder="filter contacts..." ng-model="q"></input>
-			<b><span>{{filtered.length}}</span> found</b>
-		<table class="table">
+		<div class="jumbotron">
+			<h1>{{title}}</h1>
+				<input type="search" placeholder="filter contacts..." ng-model="q"></input>
+				<span class="badge">{{filtered.length}} found</span>
+				<p/><p/>
+		</div>
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th ng-click="order('name')">Name</th>
@@ -34,7 +37,7 @@
 					<td><button class="btn btn-info" ng-click="update()">Update</input>
 				</tr>
 				<tr ng-repeat="contact in filtered = (contactlist | filter: q) | orderBy:predicate:reverse">
-					<td>{{$index + 1}}. {{contact.name}}</td>
+					<td><a href="https://www.linkedin.com/vsearch/f?type=all&keywords={{contact.name}}+{{contact.company}}" target="_newWin">{{contact.name}}</a></td>
 					<td>{{contact.email}}</td>
 					<td>{{contact.company}}</td>
 					<td>{{contact.title}}</td>

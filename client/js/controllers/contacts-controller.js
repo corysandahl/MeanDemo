@@ -1,5 +1,7 @@
 function AppCtrl($scope, $http) {
 
+;	$scope.title = "Cory's LinkedIn Contacts";
+
 	function refresh() {
 		$http.get('/api/contacts')
 			.then(function(res){
