@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
 	<title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-<script type="text/javascript" src="/js/controllers/contacts-controller.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+	<script type="text/javascript" src="/js/controllers/contacts-controller.js"></script>
 
 </head>
 <body ng-app>
 	<div class="container" ng-controller="AppCtrl">
-		<div class="jumbotron">
+		<div class="well">
 			<h1>{{title}}</h1>
 				<input type="search" placeholder="filter contacts..." ng-model="q"></input>
 				<span class="badge">{{filtered.length}} found</span>
