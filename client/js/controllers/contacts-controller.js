@@ -37,8 +37,17 @@ function AppCtrl($scope, $http) {
 		$scope.contact = c;
 	}
 
-	$scope.update = function(contact) {
+	$scope.update = function() {
 		$http.put('/api/contacts/' + $scope.contact._id, $scope.contact)
+			.then(function(res){
+				refresh();
+			}, function(res){
+				console.log(res);
+			});
+	}
+
+	$scope.hasContacted = function(contact) {
+		$http.put('/api/contacts/' + contact._id, contact)
 			.then(function(res){
 				refresh();
 			}, function(res){

@@ -1,14 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title></title>
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-	<script type="text/javascript" src="/js/controllers/contacts-controller.js"></script>
-
 </head>
 <body ng-app>
 	<div class="container" ng-controller="AppCtrl">
@@ -25,6 +19,7 @@
 					<th ng-click="order('email')">Email</th>
 					<th ng-click="order('company')">Company</th>
 					<th ng-click="order('title')">Title</th>
+					<th ng-click="order('contacted')">Contacted</th>
 					<th>Action</th>
 					<th>&nbsp;</th>
 				</tr>
@@ -35,6 +30,7 @@
 					<td><input type="text" ng-model="contact.email"></input>
 					<td><input type="text" ng-model="contact.company"></input>
 					<td><input type="text" ng-model="contact.title"></input>
+					<td><input type="checkbox" ng-model="contact.contacted"></input>
 					<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</input>
 					<td><button class="btn btn-info" ng-click="update()">Update</input>
 				</tr>
@@ -43,11 +39,14 @@
 					<td>{{contact.email}}</td>
 					<td>{{contact.company}}</td>
 					<td>{{contact.title}}</td>
+					<td><input ng-change="hasContacted(contact)" type="checkbox" ng-model="contact.contacted"></input></td>
 					<td><button class="btn btn-danger" ng-click="removeItem(contact._id)">Remove</button></td>
 					<td><button class="btn btn-warning" ng-click="edit(contact)">Edit</button></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+	<script type="text/javascript" src="/js/controllers/contacts-controller.js"></script>
 </body>
 </html>

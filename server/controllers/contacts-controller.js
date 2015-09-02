@@ -23,15 +23,16 @@ module.exports.delete = function (req, res) {
 	});
 }
 
-module.exports.update = function (req, res) {
+module.exports.findOneAndUpdate = function (req, res) {
 	var conditions = {_id: req.params.id},
 		update = {
 			name: req.body.name,
 			email: req.body.email,
 			company: req.body.company,
-			title: req.body.title
+			title: req.body.title,
+			contacted: req.body.contacted
 		},
-		options = {multi: false};
+		options = {upsert: true};
 
 	Contact.update(conditions, update, options, function(err, result) {
 		res.json(result);
