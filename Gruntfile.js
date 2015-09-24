@@ -24,10 +24,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('sayhello', function() {
-    console.log('Hello!')
-  }) 
-  
   grunt.registerTask('default', ['sayhello']);
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');

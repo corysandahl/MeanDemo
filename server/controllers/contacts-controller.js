@@ -6,6 +6,14 @@ module.exports.list = function(req, res) {
 	});
 }
 
+module.exports.findOne = function(req, res) {
+	var conditions = {_id: req.params.id};
+	console.log(conditions);
+	Contact.find(conditions).exec(function(err, results) {
+		res.json(results);
+	});
+}
+
 module.exports.create = function(req, res) {
 	var contact = new Contact(req.body);
 	contact.save(function(err, result) {

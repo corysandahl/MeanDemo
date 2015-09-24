@@ -2,7 +2,6 @@ var express 			= require('express'),
 	app     			= express(),
 	bodyParser			= require('body-parser'),
 	mongoose			= require('mongoose'),
-	meetupsController 	= require('./server/controllers/meetups-controller'),
 	contactsController	= require('./server/controllers/contacts-controller');
 
 // Mongo connection
@@ -17,12 +16,9 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/client/views/contacts.html');
 });
 
-// Meetups
-app.get('/api/meetups', meetupsController.list);
-app.post('/api/meetups', meetupsController.create);
-
 // Contacts
 app.get('/api/contacts', contactsController.list);
+app.get('/api/contacts/:id', contactsController.findOne);
 app.post('/api/contacts', contactsController.create);
 app.delete('/api/contacts/:id', contactsController.delete);
 app.put('/api/contacts/:id', contactsController.findOneAndUpdate);
